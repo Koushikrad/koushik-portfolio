@@ -151,3 +151,20 @@ window.addEventListener("load", animateOnScroll);
       };
   }
 })();
+
+function trackPageEvent(pageName: string) {
+  gtag('event', 'page', {
+    'event_category': 'engagement',
+    'event_label': pageName
+  });
+}
+
+function trackClickEvent(type: string) {
+  gtag('event', 'click', {
+    'event_category': 'engagement',
+    'event_label': type
+  });
+}
+
+(window as any).trackPageEvent = trackPageEvent;
+(window as any).trackClickEvent = trackClickEvent;

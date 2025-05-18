@@ -12,6 +12,15 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="index.css">
   <script type="module" async src="/src/main.ts"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QPD74LCPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4QPD74LCPF');
+</script>
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1233.0" data-gr-ext-installed="">
@@ -23,13 +32,13 @@
       <a href="#" class="text-2xl font-bold gradient-text">Koushik</a>
 
       <div class="hidden md:flex space-x-8">
-        <a href="#home" class="nav-link text-slate-300 hover:text-white transition-colors">Home</a>
-        <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors">About</a>
-        <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors">Skills</a>
+        <a href="#home" onclick="trackPageEvent('home')"  class="nav-link text-slate-300 hover:text-white transition-colors">Home</a>
+        <a href="#about" onclick="trackPageEvent('about')"  class="nav-link text-slate-300 hover:text-white transition-colors">About</a>
+        <a href="#skills" onclick="trackPageEvent('skills')"  class="nav-link text-slate-300 hover:text-white transition-colors">Skills</a>
         <!-- <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors">Projects</a> -->
-        <a href="#blogs" class="nav-link text-slate-300 hover:text-white transition-colors">Blogs</a>
-        <a href="#experience" class="nav-link text-slate-300 hover:text-white transition-colors">Experience</a>
-        <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors">Contact</a>
+        <a href="#blogs" onclick="trackPageEvent('blogs')"  class="nav-link text-slate-300 hover:text-white transition-colors">Blogs</a>
+        <a href="#experience" onclick="trackPageEvent('experience')"  class="nav-link text-slate-300 hover:text-white transition-colors">Experience</a>
+        <a href="#contact" onclick="trackPageEvent('contact')"  class="nav-link text-slate-300 hover:text-white transition-colors">Contact</a>
       </div>
 
       <button id="menuBtn" class="md:hidden text-white focus:outline-none">
@@ -43,12 +52,12 @@
     <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800">
       <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
         <a href="#home" class="py-2 text-slate-300 hover:text-white transition-colors">Home</a>
-        <a href="#about" class="py-2 text-slate-300 hover:text-white transition-colors">About</a>
-        <a href="#skills" class="py-2 text-slate-300 hover:text-white transition-colors">Skills</a>
+        <a href="#about" onclick="trackPageEvent('about')" class="py-2 text-slate-300 hover:text-white transition-colors">About</a>
+        <a href="#skills" onclick="trackPageEvent('skills')" class="py-2 text-slate-300 hover:text-white transition-colors">Skills</a>
         <!-- <a href="#projects" class="py-2 text-slate-300 hover:text-white transition-colors">Projects</a> -->
-        <a href="#blogs" class="py-2 text-slate-300 hover:text-white transition-colors">Blogs</a>
-        <a href="#experience" class="py-2 text-slate-300 hover:text-white transition-colors">Experience</a>
-        <a href="#contact" class="py-2 text-slate-300 hover:text-white transition-colors">Contact</a>
+        <a href="#blogs" onclick="trackPageEvent('blogs')" class="py-2 text-slate-300 hover:text-white transition-colors">Blogs</a>
+        <a href="#experience" onclick="trackPageEvent('experience')" class="py-2 text-slate-300 hover:text-white transition-colors">Experience</a>
+        <a href="#contact" onclick="trackPageEvent('contact')" class="py-2 text-slate-300 hover:text-white transition-colors">Contact</a>
       </div>
     </div>
   </nav>
@@ -72,8 +81,8 @@
           experiences.
         </p>
         <div class="flex space-x-4 opacity-0 animate-fadeInUp delay-400">
-          <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-medium">Hire Me</a>
-          <a href="#experience"
+          <a href="#contact" onclick="trackClickEvent('Hire Me')" class="btn-primary px-8 py-3 rounded-full font-medium">Hire Me</a>
+          <a href="#experience" onclick="trackClickEvent('View Work')" 
             class="px-8 py-3 rounded-full font-medium border border-sky-400 text-sky-400 hover:bg-sky-400/10 transition-colors">View
             Work</a>
         </div>
@@ -81,14 +90,14 @@
           <!-- <a href="#" class="social-icon text-slate-400 hover:text-white">
               <i class="fab fa-github text-2xl"></i>
             </a> -->
-          <a href="https://www.linkedin.com/in/koushikradhakrishnan/" target="_blank"
+          <a href="https://www.linkedin.com/in/koushikradhakrishnan/" onclick="trackClickEvent('Linkedin')" target="_blank"
             class="social-icon text-slate-400 hover:text-white">
             <i class="fab fa-linkedin text-2xl"></i>
           </a>
-          <a href="https://x.com/koushikrad" target="_blank" class="social-icon text-slate-400 hover:text-white">
+          <a href="https://x.com/koushikrad" onclick="trackClickEvent('twitter')" target="_blank" class="social-icon text-slate-400 hover:text-white">
             <i class="fab fa-brands fa-x-twitter text-2xl"></i>
           </a>
-          <a href="https://medium.com/@koushikrad" target="_blank" class="social-icon text-slate-400 hover:text-white">
+          <a href="https://medium.com/@koushikrad" onclick="trackClickEvent('medium')" target="_blank" class="social-icon text-slate-400 hover:text-white">
             <i class="fab fa-medium-m text-2xl"></i>
           </a>
         </div>
@@ -215,7 +224,7 @@
                 </p>
               </div>
           </div> -->
-          <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-medium inline-block">Let's Talk</a>
+          <a href="#contact" onclick="trackPageEvent('contact')" class="btn-primary px-8 py-3 rounded-full font-medium inline-block">Let's Talk</a>
         </div>
       </div>
     </div>
@@ -710,7 +719,7 @@
       </div>
 
       <div class="text-center mt-12">
-        <a href="/resume/Koushik_Radhakrishnan_Resume.pdf" download="Koushik_Radhakrishnan_Resume.pdf" id="downloadResume" class="btn-primary px-8 py-3 rounded-full font-medium inline-flex items-center">
+        <a href="/resume/Koushik_Radhakrishnan_Resume.pdf" onclick="trackClickEvent('download resume')" download="Koushik_Radhakrishnan_Resume.pdf" id="downloadResume" class="btn-primary px-8 py-3 rounded-full font-medium inline-flex items-center">
           <i class="fas fa-download mr-2"></i> Download Resume
         </a>
       </div>
@@ -740,7 +749,7 @@
           </div>
           <h3 class="text-xl font-bold mb-2">Email</h3>
           <p class="text-slate-400 mb-4">Drop me an email anytime</p>
-          <a href="mailto:rkoushik@outlook.com"
+          <a href="mailto:rkoushik@outlook.com" onclick="trackClickEvent('Email')"
             class="text-sky-400 hover:text-sky-300 transition-colors font-medium">rkoushik@outlook.com</a>
         </div>
 
@@ -752,7 +761,7 @@
           </div>
           <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
           <p class="text-slate-400 mb-4">Let's connect professionally</p>
-          <a href="https://www.linkedin.com/in/koushikradhakrishnan/" target="_blank"
+          <a onclick="trackClickEvent('Linkedin')" href="https://www.linkedin.com/in/koushikradhakrishnan/" target="_blank"
             class="text-sky-400 hover:text-sky-300 transition-colors font-medium">linkedin.com/in/koushikradhakrishnan</a>
         </div>
 
@@ -764,7 +773,7 @@
           </div>
           <h3 class="text-xl font-bold mb-2">Phone</h3>
           <p class="text-slate-400 mb-4">Call me during business hours</p>
-          <a href="tel:+6584294487"
+          <a href="tel:+6584294487" onclick="trackClickEvent('phone')"
             class="text-sky-400 hover:text-sky-300 transition-colors font-medium">+65-84294487</a>
         </div>
       </div>
@@ -778,7 +787,7 @@
             >
               <i class="fab fa-github"></i>
             </a> -->
-          <a href="https://www.linkedin.com/in/koushikradhakrishnan/"
+          <a onclick="trackClickEvent('Linkedin')" href="https://www.linkedin.com/in/koushikradhakrishnan/"
             class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-sky-400 hover:text-white transition-colors">
             <i class="fab fa-linkedin-in"></i>
           </a>
@@ -786,7 +795,7 @@
             class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-sky-400 hover:text-white transition-colors">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="https://medium.com/@koushikrad"
+          <a onclick="trackClickEvent('medium')" href="https://medium.com/@koushikrad"
             class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-sky-400 hover:text-white transition-colors">
             <i class="fab fa-medium-m"></i>
           </a>
