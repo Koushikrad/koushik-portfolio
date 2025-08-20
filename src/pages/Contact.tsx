@@ -35,7 +35,7 @@ export default function Contact() {
 
           <div className="contact-card p-6 rounded-xl flex flex-col items-center text-center" role="listitem">
             <div className="w-16 h-16 rounded-full bg-sky-400/20 flex items-center justify-center mb-4">
-              <i className="fas fa-phone-alt text-2xl text-sky-400" aria-hidden="true"></i>
+              <i className="fas fa-phone text-2xl text-sky-400" aria-hidden="true"></i>
             </div>
             <h3 className="text-xl font-bold mb-2">Phone</h3>
             <p className="text-slate-400 mb-4">Call me during business hours</p>
