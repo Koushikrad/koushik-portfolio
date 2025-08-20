@@ -6,16 +6,17 @@ import Blogs from './Blogs'
 import Experience from './Experience'
 import Contact from './Contact'
 import { useLocation } from 'react-router-dom'
+import { scrollToSection } from '../utils/scrollToSection'
 
 export default function Sections() {
   const { hash } = useLocation()
 
   useEffect(() => {
     if (hash) {
-      const el = document.querySelector(hash)
-      if (el) {
-        window.scrollTo({ top: (el as HTMLElement).offsetTop - 80, behavior: 'smooth' })
-      }
+      // Add a small delay to ensure DOM is ready
+      setTimeout(() => {
+        scrollToSection(hash)
+      }, 100)
     }
   }, [hash])
 
