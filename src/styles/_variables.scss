@@ -1,0 +1,31 @@
+// Color Variables
+$primary-blue: #38bdf8;
+$primary-purple: #818cf8;
+$background-dark: #0f172a;
+$background-card: rgba(30, 41, 59, 0.5);
+$text-primary: #e2e8f0;
+$text-secondary: #94a3b8;
+$border-color: rgba(100, 116, 139, 0.2);
+$border-hover: rgba(100, 116, 139, 0.5);
+
+// Spacing
+$nav-height: 80px;
+$section-padding: 80px;
+
+// Transitions
+$transition-fast: 0.3s ease;
+$transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Shadows
+$shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-button: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
+
+// Gradients
+$gradient-primary: linear-gradient(90deg, $primary-blue, $primary-purple);
+$gradient-radial: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, rgba(15, 23, 42, 0) 50%);
+
+// Z-index
+$z-nav: 50;
+$z-progress: 1000;
+$z-skip-link: 50;
