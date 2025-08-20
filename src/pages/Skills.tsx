@@ -1,24 +1,16 @@
 import { useEffect } from 'react'
 import { trackPageEvent } from '../utils/analytics'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
+import SkillCard from '../components/SkillCard'
+import { skillsTop, skillsMid, skillPills } from '../data/skills'
 
 export default function Skills() {
   useEffect(() => { trackPageEvent('skills') }, [])
   useRevealOnScroll()
-  const skillsTop = [
-    { icon: 'fab fa-html5', name: 'HTML5', pct: 95 },
-    { icon: 'fab fa-css3-alt', name: 'CSS3', pct: 90 },
-    { icon: 'fab fa-js', name: 'JavaScript', pct: 92 },
-    { icon: 'fab fa-sass', name: 'Sass/SCSS', pct: 90 },
-  ]
-  const skillsMid = [
-    { icon: 'fab fa-flutter fa-brands', name: 'Flutter', pct: 90 },
-    { icon: 'fab fa-react', name: 'React', pct: 70 },
-  ]
-  const pills = ['TypeScript', 'Tailwind CSS', 'Ember JS', 'Webpack', 'Jest', 'Git', 'Figma']
+  const skillPillData = skillPills
 
   return (
-    <section className="py-20 bg-slate-800/50">
+    <section className="py-20 bg-slate-800/50 skills-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My <span className="gradient-text">Skills</span></h2>
@@ -28,34 +20,18 @@ export default function Skills() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {skillsTop.map((s) => (
-            <div className="skill-pill p-6 rounded-xl flex flex-col items-center" key={s.name}>
-              <div className="w-16 h-16 flex items-center justify-center mb-4 text-sky-400">
-                <i className={`${s.icon} text-4xl`}></i>
-              </div>
-              <h3 className="text-lg font-medium">{s.name}</h3>
-              <div className="w-full bg-slate-700 h-2 rounded-full mt-3">
-                <div className="bg-gradient-to-r from-sky-400 to-indigo-500 h-2 rounded-full" style={{ width: `${s.pct}%` }} />
-              </div>
-            </div>
+            <SkillCard key={s.name} iconClass={s.icon} name={s.name} pct={s.pct} />
           ))}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {skillsMid.map((s) => (
-            <div className="skill-pill p-6 rounded-xl flex flex-col items-center" key={s.name}>
-              <div className="w-16 h-16 flex items-center justify-center mb-4 text-sky-400">
-                <i className={`${s.icon} text-4xl`}></i>
-              </div>
-              <h3 className="text-lg font-medium">{s.name}</h3>
-              <div className="w-full bg-slate-700 h-2 rounded-full mt-3">
-                <div className="bg-gradient-to-r from-sky-400 to-indigo-500 h-2 rounded-full" style={{ width: `${s.pct}%` }} />
-              </div>
-            </div>
+            <SkillCard key={s.name} iconClass={s.icon} name={s.name} pct={s.pct} />
           ))}
         </div>
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {pills.map((p) => (
+          {skillPillData.map((p) => (
             <div className="skill-pill py-3 px-6 rounded-full text-center" key={p}>{p}</div>
           ))}
         </div>

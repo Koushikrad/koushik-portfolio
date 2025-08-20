@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { trackPageEvent } from '../utils/analytics'
-import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
+import { useProfilePhotoZoom } from '../hooks/useProfilePhotoZoom'
 
 export default function About() {
   useEffect(() => { trackPageEvent('about') }, [])
-  useRevealOnScroll()
+  useProfilePhotoZoom()
   return (
-    <section className="py-20 bg-slate-900">
+    <section className="py-20 bg-slate-900 about-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About <span className="gradient-text">Me</span></h2>
