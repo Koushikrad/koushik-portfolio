@@ -21,6 +21,14 @@ export function scrollToSection(sectionId: string) {
       scrollTop = Math.max(0, Math.min(idealTop, document.documentElement.scrollHeight - viewportHeight))
     }
     
+    // Always scroll to the section, regardless of current URL
     window.scrollTo({ top: scrollTop, behavior: 'smooth' })
+    
+    // Update URL after a small delay to ensure scroll starts
+    setTimeout(() => {
+      if (sectionId.startsWith('#')) {
+        window.history.replaceState(null, '', sectionId)
+      }
+    }, 50)
   }
 }

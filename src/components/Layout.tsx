@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ProgressBar from './ProgressBar.tsx'
+import { scrollToSection } from '../utils/scrollToSection'
 
 type Props = { children: ReactNode }
 
@@ -17,16 +18,16 @@ export default function Layout({ children }: Props) {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link to="/#home" className="text-2xl font-bold gradient-text" aria-label="Go to home page">Koushik</Link>
           <div className="hidden md:flex space-x-8" role="menubar">
-            <NavLink to="/#home" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to home section">Home</NavLink>
-            <NavLink to="/#about" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to about section">About</NavLink>
-            <NavLink to="/#skills" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to skills section">Skills</NavLink>
-            <NavLink to="/#blogs" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to blogs section">Blogs</NavLink>
-            <NavLink to="/#experience" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to experience section">Experience</NavLink>
-            <NavLink to="/#contact" className="nav-link text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to contact section">Contact</NavLink>
+            <button onClick={() => scrollToSection('#home')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to home section">Home</button>
+            <button onClick={() => scrollToSection('#about')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to about section">About</button>
+            <button onClick={() => scrollToSection('#skills')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to skills section">Skills</button>
+            <button onClick={() => scrollToSection('#blogs')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to blogs section">Blogs</button>
+            <button onClick={() => scrollToSection('#experience')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to experience section">Experience</button>
+            <button onClick={() => scrollToSection('#contact')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to contact section">Contact</button>
           </div>
           <button 
             onClick={() => setMobileOpen(v => !v)} 
-            className="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded"
+            className="md:hidden text-white focus:outline-none rounded"
             aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -44,17 +45,17 @@ export default function Layout({ children }: Props) {
         </div>
         <div 
           id="mobile-menu"
-          className={`md:hidden bg-slate-900 border-b border-slate-800 mobile-menu ${mobileOpen ? 'open' : ''}`}
+          className={`md:hidden mobile-menu ${mobileOpen ? 'open' : ''}`}
           role="menu"
           aria-hidden={!mobileOpen}
         >
-          <div className="container mx-auto px-4 py-2 flex flex-col space-y-3" onClick={() => setMobileOpen(false)}>
-            <NavLink to="/#home" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to home section">Home</NavLink>
-            <NavLink to="/#about" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to about section">About</NavLink>
-            <NavLink to="/#skills" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to skills section">Skills</NavLink>
-            <NavLink to="/#blogs" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to blogs section">Blogs</NavLink>
-            <NavLink to="/#experience" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to experience section">Experience</NavLink>
-            <NavLink to="/#contact" className="py-2 text-slate-300 hover:text-white transition-colors" role="menuitem" aria-label="Go to contact section">Contact</NavLink>
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-2" onClick={() => setMobileOpen(false)}>
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to home section">Home</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('#about'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to about section">About</a>
+            <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('#skills'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to skills section">Skills</a>
+            <a href="#blogs" onClick={(e) => { e.preventDefault(); scrollToSection('#blogs'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to blogs section">Blogs</a>
+            <a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('#experience'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to experience section">Experience</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to contact section">Contact</a>
           </div>
         </div>
       </nav>
@@ -68,10 +69,10 @@ export default function Layout({ children }: Props) {
               <p>© 2025 Koushik Radhakrishnan. All rights reserved.</p>
             </div>
             <nav className="flex space-x-6" role="navigation" aria-label="Footer navigation">
-              <NavLink to="/#home" className="text-slate-400 hover:text-white transition-colors" aria-label="Go to home section">Home</NavLink>
-              <NavLink to="/#about" className="text-slate-400 hover:text-white transition-colors" aria-label="Go to about section">About</NavLink>
-              <NavLink to="/#blogs" className="text-slate-400 hover:text-white transition-colors" aria-label="Go to blogs section">Blog</NavLink>
-              <NavLink to="/#contact" className="text-slate-400 hover:text-white transition-colors" aria-label="Go to contact section">Contact</NavLink>
+              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="text-slate-400 hover:text-white transition-colors" aria-label="Go to home section">Home</a>
+              <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('#about'); }} className="text-slate-400 hover:text-white transition-colors" aria-label="Go to about section">About</a>
+              <a href="#blogs" onClick={(e) => { e.preventDefault(); scrollToSection('#blogs'); }} className="text-slate-400 hover:text-white transition-colors" aria-label="Go to blogs section">Blog</a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }} className="text-slate-400 hover:text-white transition-colors" aria-label="Go to contact section">Contact</a>
             </nav>
           </div>
         </div>

@@ -1,0 +1,55 @@
+@use 'variables' as *;
+
+// Global focus reset
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+  outline-offset: 0 !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  outline-color: transparent !important;
+}
+
+// Navigation specific focus reset
+nav button,
+nav a,
+nav .nav-link {
+  border: none !important;
+  border-color: transparent !important;
+  border-style: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+
+nav button:focus,
+nav button:focus-visible,
+nav button:focus-within,
+nav button:active,
+nav button:hover,
+nav a:focus,
+nav a:focus-visible,
+nav a:focus-within,
+nav a:active,
+nav a:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// Override Tailwind focus classes
+.focus\:ring-2:focus,
+.focus\:ring-sky-400:focus,
+.focus\:ring-offset-2:focus,
+.focus\:ring-offset-slate-900:focus,
+.focus\:ring-offset-slate-800:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// Skip link styling (keep for accessibility)
+a[href="#main-content"]:focus {
+  outline: 2px solid $primary-blue;
+  outline-offset: 2px;
+}

@@ -1,0 +1,198 @@
+@use 'variables' as *;
+
+// Navigation
+.nav-link {
+  position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: $gradient-primary;
+    transition: width $transition-fast;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Cards
+.project-card,
+.blog-card {
+  transition: all $transition-medium;
+  background: $background-card;
+  border: 1px solid $border-color;
+  backdrop-filter: blur(10px);
+  will-change: transform;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-card;
+    border: 1px solid $border-hover;
+  }
+}
+
+.skill-pill {
+  background: $background-card;
+  border: 1px solid $border-color;
+  transition: all $transition-fast;
+  will-change: transform;
+  
+  &:hover {
+    background: rgba($primary-blue, 0.2);
+    border: 1px solid rgba($primary-blue, 0.5);
+    transform: translateY(-3px);
+  }
+}
+
+.contact-card {
+  background: $background-card;
+  border: 1px solid $border-color;
+  transition: all $transition-medium;
+  overflow-wrap: anywhere;
+  will-change: transform;
+  
+  &:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba($primary-blue, 0.5);
+    box-shadow: $shadow-card;
+  }
+}
+
+// Buttons
+.btn-primary {
+  background: $gradient-primary;
+  transition: all $transition-fast;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-button;
+  }
+}
+
+.btn-outline {
+  border: 1px solid $primary-blue;
+  color: $primary-blue;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background: rgba($primary-blue, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// Social icons
+.social-icon {
+  transition: all $transition-fast;
+  
+  &:hover {
+    transform: translateY(-5px);
+    color: $primary-blue;
+  }
+}
+
+// Timeline
+.timeline-item {
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background: $gradient-primary;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    z-index: 0;
+  }
+}
+
+// Mobile menu
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all $transition-medium;
+  background: rgba($background-dark, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: $shadow-card;
+  transform: translateY(-10px);
+  
+  &.open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  a {
+    outline: none !important;
+    border: none !important;
+  }
+}
+
+// Profile photo
+.photo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .photo-border {
+    background: $gradient-primary;
+    opacity: 0.8;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .profile-photo {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 10;
+    position: relative;
+    transform: scale(1.06);
+    transition: transform $transition-slow;
+    will-change: transform;
+    
+    &.in-view {
+      transform: scale(1);
+    }
+  }
+}
+
+// Progress bar
+.progress-bar {
+  height: 6px;
+  background: $gradient-primary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-progress;
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+// Utility classes
+.gradient-text {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-bg {
+  background: $gradient-radial;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}

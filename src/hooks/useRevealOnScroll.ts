@@ -5,7 +5,7 @@ export function useRevealOnScroll(selector = '.skill-pill, .project-card, .blog-
     let elements = Array.from(document.querySelectorAll<HTMLElement>(selector))
 
     const reveal = () => {
-      const threshold = window.innerHeight * 0.8 // Trigger when element is more visible
+      const threshold = window.innerHeight * 0.7 // Trigger when element is 70% into viewport
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect()
         if (rect.top < threshold) {
@@ -22,7 +22,7 @@ export function useRevealOnScroll(selector = '.skill-pill, .project-card, .blog-
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect()
         // Only reveal if element is well into viewport
-        if (rect.top < window.innerHeight * 0.8) {
+        if (rect.top < window.innerHeight * 0.7) {
           el.style.opacity = '1'
           el.style.transform = 'translateY(0)'
         }
@@ -33,8 +33,8 @@ export function useRevealOnScroll(selector = '.skill-pill, .project-card, .blog-
       elements = Array.from(document.querySelectorAll<HTMLElement>(selector))
       elements.forEach((el) => {
         el.style.opacity = '0'
-        el.style.transform = 'translateY(40px)' // More movement for visible animation
-        el.style.transition = 'all 0.8s ease' // Slower transition for better visibility
+        el.style.transform = 'translateY(50px)' // More movement for visible animation
+        el.style.transition = 'all 1s ease' // Slower transition for better visibility
       })
     }
 

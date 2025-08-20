@@ -9,7 +9,7 @@ export function useSectionReveal(sectionId: string, childSelector: string) {
     
     const revealSection = () => {
       const sectionRect = section.getBoundingClientRect()
-      const threshold = window.innerHeight * 0.8 // Trigger when section is more visible
+      const threshold = window.innerHeight * 0.7 // Trigger when section is 60% into viewport
       
       // If section is in view, reveal all elements at once
       if (sectionRect.top < threshold) {
@@ -24,7 +24,7 @@ export function useSectionReveal(sectionId: string, childSelector: string) {
       const sectionRect = section.getBoundingClientRect()
       
       // Only reveal if section is well into viewport
-      if (sectionRect.top < window.innerHeight * 0.8) {
+      if (sectionRect.top < window.innerHeight * 0.6) {
         elements.forEach((el) => {
           el.style.opacity = '1'
           el.style.transform = 'translateY(0)'
@@ -35,8 +35,8 @@ export function useSectionReveal(sectionId: string, childSelector: string) {
     const initializeElements = () => {
       elements.forEach((el) => {
         el.style.opacity = '0'
-        el.style.transform = 'translateY(40px)' // More movement for visible animation
-        el.style.transition = 'all 0.8s ease' // Slower transition for better visibility
+        el.style.transform = 'translateY(60px)' // More movement for visible animation
+        el.style.transition = 'all 1.2s ease' // Slower transition for better visibility
       })
     }
 
