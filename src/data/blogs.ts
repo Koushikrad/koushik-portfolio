@@ -11,14 +11,14 @@ export type Blog = {
 
 export const blogs: Blog[] = [
   {
-    icon: 'fas fa-code',
-    date: 'Jul 18, 2020',
-    read: '7 min read',
-    title: 'Code Reviews — Best Practices',
-    desc: 'A practical guide to making code reviews more effective, respectful, and valuable for both the reviewer and the author. I share lessons learned from real-world team collaboration and how to turn code reviews into a tool for growth.',
-    tags: ['Coding', 'Code Review', 'Best practices'],
-    href: 'https://medium.com/@koushikrad/code-reviews-best-practices-686a365b79a8',
-    blob: '/images/blob-1.svg',
+    icon: 'fas fa-brain',
+    date: 'Oct 07, 2025',
+    read: '3 min read',
+    title: 'Your Face Isn\’t Free: The Hidden Dangers of AI Image Generation',
+    desc: 'AI should enhance creativity, not compromise consent. Your face is your identity, and it must remain private. When using image generators, pause before you upload. Even a celebrity\'s face, or your own, is not a free prompt. Let\'s raise awareness for digital dignity.',
+    tags: ['AI', 'Image Generation', 'Awareness'],
+    href: 'https://www.linkedin.com/pulse/your-face-isnt-free-hidden-dangers-ai-image-koushik-radhakrishnan-uxedc/',
+    blob: '/images/blob-3.svg',
   },
   {
     icon: 'fa-brands fa-flutter',
@@ -40,6 +40,16 @@ export const blogs: Blog[] = [
     href: 'https://medium.com/@koushikrad/using-an-ember-cli-addon-detecting-ember-js-components-entering-or-leaving-the-viewport-dda5ad9b46bf',
     blob: '/images/blob-3.svg',
   },
+  {
+    icon: 'fas fa-code',
+    date: 'Jul 18, 2020',
+    read: '7 min read',
+    title: 'Code Reviews — Best Practices',
+    desc: 'A practical guide to making code reviews more effective, respectful, and valuable for both the reviewer and the author. I share lessons learned from real-world team collaboration and how to turn code reviews into a tool for growth.',
+    tags: ['Coding', 'Code Review', 'Best practices'],
+    href: 'https://medium.com/@koushikrad/code-reviews-best-practices-686a365b79a8',
+    blob: '/images/blob-1.svg',
+  }
 ]
 
 
