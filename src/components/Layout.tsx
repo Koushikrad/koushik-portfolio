@@ -33,9 +33,10 @@ export default function Layout({ children }: Props) {
           <div className="hidden md:flex space-x-8" role="menubar">
             <button onClick={(e) => handleNavClick(e, '#home')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to home section">Home</button>
             <button onClick={(e) => handleNavClick(e, '#about')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to about section">About</button>
+            <button onClick={(e) => handleNavClick(e, '#experience')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to experience section">Experience</button>
             <button onClick={(e) => handleNavClick(e, '#skills')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to skills section">Skills</button>
             <button onClick={(e) => handleNavClick(e, '#blogs')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to blogs section">Blogs</button>
-            <button onClick={(e) => handleNavClick(e, '#experience')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to experience section">Experience</button>
+            <Link to="/guestbook" className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none" role="menuitem" aria-label="Go to guestbook page">Guestbook</Link>
             <button onClick={(e) => handleNavClick(e, '#contact')} className="nav-link text-slate-300 hover:text-white transition-colors focus:outline-none bg-transparent border-none p-0 cursor-pointer" role="menuitem" aria-label="Go to contact section">Contact</button>
           </div>
           <button
@@ -65,9 +66,10 @@ export default function Layout({ children }: Props) {
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to home section">Home</a>
             <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to about section">About</a>
+            <a href="#experience" onClick={(e) => handleNavClick(e, '#experience')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to experience section">Experience</a>
             <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to skills section">Skills</a>
             <a href="#blogs" onClick={(e) => handleNavClick(e, '#blogs')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to blogs section">Blogs</a>
-            <a href="#experience" onClick={(e) => handleNavClick(e, '#experience')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to experience section">Experience</a>
+            <Link to="/guestbook" onClick={() => setMobileOpen(false)} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to guestbook page">Guestbook</Link>
             <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="py-3 px-4 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all duration-200 font-medium text-left" role="menuitem" aria-label="Go to contact section">Contact</a>
           </div>
         </div>

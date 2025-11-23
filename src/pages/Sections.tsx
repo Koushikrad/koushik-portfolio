@@ -7,6 +7,7 @@ import Experience from './Experience'
 import Contact from './Contact'
 import { useLocation } from 'react-router-dom'
 import { scrollToSection } from '../utils/scrollToSection'
+import SEO from '../components/SEO'
 
 export default function Sections() {
   const { hash } = useLocation()
@@ -22,6 +23,7 @@ export default function Sections() {
 
   return (
     <div>
+      <SEO title="Koushik Radhakrishnan" description="Senior Frontend Developer & UI/UX Enthusiast" />
       <div id="home"><Home /></div>
       <div id="about"><About /></div>
       <div id="skills"><Skills /></div>
