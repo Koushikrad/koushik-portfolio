@@ -39,11 +39,11 @@ export default function BugSquasher() {
     const startGame = () => {
         setIsPlaying(true)
         setScore(0)
-        setTimeLeft(20)
+        setTimeLeft(30)
         setBugs([])
         setGameOver(false)
         spawnRate.current = 1000
-        endTimeRef.current = Date.now() + 20000 // 20 seconds from now
+        endTimeRef.current = Date.now() + 30000 // 30 seconds from now
         trackClickEvent('Start Bug Squasher')
         playStart()
     }
