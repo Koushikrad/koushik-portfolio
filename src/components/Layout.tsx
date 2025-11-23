@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import ProgressBar from './ProgressBar.tsx'
 import { scrollToSection } from '../utils/scrollToSection'
+import BugSquasher from './game/BugSquasher'
 
 type Props = { children: ReactNode }
 
@@ -23,6 +24,7 @@ export default function Layout({ children }: Props) {
 
   return (
     <div>
+      <BugSquasher />
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-sky-400 text-slate-900 px-4 py-2 rounded font-medium z-50">
         Skip to main content
       </a>
