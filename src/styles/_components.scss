@@ -3,7 +3,7 @@
 // Navigation
 .nav-link {
   position: relative;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -14,7 +14,7 @@
     background: $gradient-primary;
     transition: width $transition-fast;
   }
-  
+
   &:hover::after {
     width: 100%;
   }
@@ -28,7 +28,7 @@
   border: 1px solid $border-color;
   backdrop-filter: blur(10px);
   will-change: transform;
-  
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: $shadow-card;
@@ -41,7 +41,7 @@
   border: 1px solid $border-color;
   transition: all $transition-fast;
   will-change: transform;
-  
+
   &:hover {
     background: rgba($primary-blue, 0.2);
     border: 1px solid rgba($primary-blue, 0.5);
@@ -55,7 +55,7 @@
   transition: all $transition-medium;
   overflow-wrap: anywhere;
   will-change: transform;
-  
+
   &:hover {
     transform: translateY(-5px);
     border: 1px solid rgba($primary-blue, 0.5);
@@ -67,7 +67,7 @@
 .btn-primary {
   background: $gradient-primary;
   transition: all $transition-fast;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: $shadow-button;
@@ -78,7 +78,7 @@
   border: 1px solid $primary-blue;
   color: $primary-blue;
   transition: all $transition-fast;
-  
+
   &:hover {
     background: rgba($primary-blue, 0.1);
     transform: translateY(-2px);
@@ -88,7 +88,7 @@
 // Social icons
 .social-icon {
   transition: all $transition-fast;
-  
+
   &:hover {
     transform: translateY(-5px);
     color: $primary-blue;
@@ -98,7 +98,7 @@
 // Timeline
 .timeline-item {
   position: relative;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -122,13 +122,13 @@
   border-bottom: 1px solid rgba(51, 65, 85, 0.5);
   box-shadow: $shadow-card;
   transform: translateY(-10px);
-  
+
   &.open {
-    max-height: 300px;
+    max-height: fit-content;
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   a {
     outline: none !important;
     border: none !important;
@@ -162,7 +162,7 @@
     transform: scale(1.06);
     transition: transform $transition-slow;
     will-change: transform;
-    
+
     &.in-view {
       transform: scale(1);
     }
