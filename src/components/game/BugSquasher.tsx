@@ -29,6 +29,7 @@ export default function BugSquasher() {
     const requestRef = useRef<number>()
     const lastSpawnTime = useRef<number>(0)
     const spawnRate = useRef<number>(1000) // Start with 1 bug per second
+    const endTimeRef = useRef<number>(0)
 
     useEffect(() => {
         const stored = localStorage.getItem('bugSquasherHighScore')
@@ -42,6 +43,7 @@ export default function BugSquasher() {
         setBugs([])
         setGameOver(false)
         spawnRate.current = 1000
+        endTimeRef.current = Date.now() + 20000 // 20 seconds from now
         trackClickEvent('Start Bug Squasher')
         playStart()
     }
@@ -95,6 +97,19 @@ export default function BugSquasher() {
         if (!isPlaying || gameOver) return
 
         const loop = (time: number) => {
+            const now = Date.now()
+
+            // Timer Logic
+            const remaining = Math.ceil((endTimeRef.current - now) / 1000)
+            if (remaining <= 0) {
+                setTimeLeft(0)
+                finishGame()
+                return // Stop loop
+            } else {
+                setTimeLeft(remaining)
+            }
+
+            // Spawn Logic
             if (time - lastSpawnTime.current > spawnRate.current) {
                 spawnBug()
                 lastSpawnTime.current = time
@@ -108,24 +123,7 @@ export default function BugSquasher() {
         return () => {
             if (requestRef.current) cancelAnimationFrame(requestRef.current)
         }
-    }, [isPlaying, gameOver, spawnBug, score])
-
-    // Timer
-    useEffect(() => {
-        if (!isPlaying || gameOver) return
-
-        const timer = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev <= 1) {
-                    finishGame()
-                    return 0
-                }
-                return prev - 1
-            })
-        }, 1000)
-
-        return () => clearInterval(timer)
-    }, [isPlaying, gameOver, finishGame])
+    }, [isPlaying, gameOver, spawnBug, score, finishGame])
 
     return (
         <>
