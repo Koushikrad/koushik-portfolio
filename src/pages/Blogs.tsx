@@ -20,7 +20,7 @@ export default function Blogs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Blog articles">
           {posts.map((p) => (
-            <BlogCard key={p.title} iconClass={p.icon} date={p.date} read={p.read} title={p.title} desc={p.desc} tags={p.tags} href={p.href} blobSrc={p.blob} />
+            <BlogCard key={p.title} id={p.id} iconClass={p.icon} date={p.date} read={p.read} title={p.title} desc={p.desc} tags={p.tags} href={p.href} blobSrc={p.blob} />
           ))}
         </div>
 

@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
+
 type Props = {
+  id: string
   iconClass: string
   date: string
   read: string
@@ -9,11 +12,13 @@ type Props = {
   blobSrc: string
 }
 
-export default function BlogCard({ iconClass, date, read, title, desc, tags, href, blobSrc }: Props) {
+export default function BlogCard({ id, iconClass, date, read, title, desc, tags, href, blobSrc }: Props) {
+  const isExternal = href && href.startsWith('http');
+
   return (
     <article className="blog-card rounded-xl overflow-hidden" role="listitem">
       <div className="h-48 bg-slate-800 relative overflow-hidden">
-        <img src={blobSrc} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        <img src={blobSrc} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full opacity-20" />
         <div className="absolute inset-0 flex items-center justify-center">
           <i className={`${iconClass} text-4xl text-white`} aria-hidden="true"></i>
         </div>
@@ -28,12 +33,29 @@ export default function BlogCard({ iconClass, date, read, title, desc, tags, hre
         <p className="text-slate-400 mb-4">{desc}</p>
         <div className="flex flex-wrap gap-2 mb-6" role="list" aria-label="Article tags">
           {tags.map((t) => (
-            <span className="blog-tag text-xs px-3 py-1 rounded-full" key={t} role="listitem">{t}</span>
+            <span className="bg-sky-400/10 text-sky-400 px-3 py-1 rounded-full text-sm border border-sky-400/20 hover:bg-sky-400/20 transition-colors cursor-default" key={t} role="listitem">{t}</span>
           ))}
         </div>
-        <a href={href} className="text-sky-400 hover:text-sky-300 transition-colors inline-flex items-center focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-800 rounded" target="_blank" rel="noreferrer" aria-label={`Read more about ${title}`}>
-          Read More <i className="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-        </a>
+
+        {isExternal ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-400 hover:text-sky-300 transition-colors inline-flex items-center focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-800 rounded"
+            aria-label={`Read more about ${title} on external site`}
+          >
+            Read Article <i className="fas fa-external-link-alt ml-2" aria-hidden="true"></i>
+          </a>
+        ) : (
+          <Link
+            to={`/blog/${id}`}
+            className="text-sky-400 hover:text-sky-300 transition-colors inline-flex items-center focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-800 rounded"
+            aria-label={`Read more about ${title}`}
+          >
+            Read More <i className="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+          </Link>
+        )}
       </div>
     </article>
   )
